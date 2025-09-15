@@ -20,18 +20,21 @@ public class GradeCalculator {
         double nilaiTugas = scanner.nextDouble();
         if (nilaiTugas < 0 || nilaiTugas > 100) {
             System.out.println("Input tidak valid: harus antara 0 dan 100!");
+            return;
         }
 
         System.out.print("Nilai UTS (0-100): ");
         double nilaiUTS = scanner.nextDouble();
-        if (nilaiUTS < 0 || nilaiTugas > 100) {
+        if (nilaiUTS < 0 || nilaiUTS > 100) {
             System.out.println("Input tidak valid: harus antara 0 dan 100!");
+            return;
         }
 
         System.out.print("Nilai UAS (0-100): ");
         double nilaiUAS = scanner.nextDouble();
         if (nilaiUAS < 0 || nilaiUAS > 100) {
             System.out.println("Input tidak valid: harus antara 0 dan 100!");
+            return;
         }
 
         // Hitung nilai akhir (bobot: Tugas 30%, UTS 30%, UAS 40%)

@@ -10,10 +10,10 @@ public class SimpleCalculator {
 
         // Input dua angka
         System.out.print("Masukkan angka pertama: ");
-        double angka1 = scanner.nextDouble();
+        double angka1 = scanner.nextInt();
 
         System.out.print("Masukkan angka kedua: ");
-        double angka2 = scanner.nextDouble();
+        double angka2 = scanner.nextInt();
 
         // Operasi Matematika
         double penjumlahan = angka1 + angka2;

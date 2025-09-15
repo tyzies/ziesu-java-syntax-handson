@@ -35,7 +35,7 @@ public class DataTypeLimits {
         System.out.println("Double - Min: " + minDouble + ", Max: " + maxDouble);
 
         // Eksperimen: Coba assign nilai di luar batas
-        byte testByte = (byte) 200;
+        byte testByte = (byte) 300;
         System.out.println("testByte: " + testByte);
 
         // Test dengan operasi yang menyebabkan overflow

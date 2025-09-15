@@ -1,0 +1,105 @@
+JAWABAN PERTANYAAN ANALISIS
+
+BAGIAN A: SINTAKS & PENAMAAN
+1. Analisis Error
+   Error yang ditemukan:
+   - Nama kelas tidak sesuai dengan nama file (case-sensitive)
+       Sebelum perbaikan:
+           public class syntaxchecker {
+               // ...
+           }
+       Sesudah perbaikan:
+           public class SyntaxChecker {
+               // ...
+           }
+   - "Not a statement" (Tidak mengikuti aturan penamaan variabel Java)
+       Sebelum perbaikan:
+           int 2number = 10;
+           String first name = "Budi";
+           int class = 25;
+           System.out.println("Hello World")
+           boolean is Active = true;
+           double nilai rata = 85.5;
+       Setelah perbaikan:
+           int number = 10;
+           String firstName = "Budi";
+           int Class = 25;
+           System.out.println("Hello World")
+           boolean isActive = true;
+           double nilaiRata = 85.5;
+   - ';' expected
+       Sebelum perbaikan:
+           System.out.println("Hello World")
+       Setelah perbaikan:
+           System.out.println("Hello World");
+2. Naming Convention
+   - namaLengkap
+        Nama deskriptif: langsung menjelaskan isinya (nama lengkap mahasiswa).
+   - isActive
+        Sesuai konvensi penamaan boolean: diawali dengan kata kerja/prefix seperti is, has, can sehingga jelas tipe dan maknanya (true/false).
+   - alamatRumah
+        Nama variabel jelas dan ringkas, mudah dibaca oleh programmer lain.
+3. Class Naming
+   Saat nama class pada file yang salah dicompile, akan muncul error:
+    "class syntaxchecker is public, should be declared in a file named syntaxchecker.java"
+
+BAGIAN B: TIPE DATA DAN CASTING
+1. Pemilihan Tipe Data
+   - Menggunakan double
+        angka1 = 2
+        angka2 = 2
+        hasil = 4.0
+   - Menggunakan int
+        angka1 = 2
+        angka2 = 2
+        hasil = 4
+   Menggunakan double memungkinkan kita untuk melakukan operasi matematika dengan angka desimal.
+   Sedangkan, menggunakan int hanya bisa untuk melakukan operasi matematika dengan angka bulat,
+   jika memasukkan angka desimal, maka akan muncul error.
+2. Data Loss Experiment
+   Nilai dengan data loss paling signifikan adalah pada kasus konversi mata uang (dollar -> rupiah), yaitu Rp15840.0,
+   karena pembulatan/pemotongan desimal dilakukan sebelum konversi ke rupiah.
+3. Overflow Analysis
+   Hasil yang muncul adalah 44.
+   Karena byte di Java adalah tipe signed 8-bit (rentang -128 sampai 127)
+   Jadi (300 mod 256) = 44 (karena hanya 8 bit terbawah diambil)
+4. Practical Impact
+   Ada dua program yang paling berisiko menyebabkan kesalahan.
+   - DataLossStudy
+        double dollar = 15.99;
+        int dollarInt = (int) dollar;        // pemotongan sebelum konversi
+        double rupiah = dollarInt * 16000;  // kurs contoh
+        System.out.println("Dollar (double): $" + dollar);
+        System.out.println("Dollar setelah casting ke int: $" + dollarInt);
+        System.out.println("Data yang hilang: $" + (dollar - dollarInt));
+        System.out.println("Konversi dollar ke rupiah: Rp" + rupiah);
+      Output:
+        3. Konversi mata uang (dollar -> rupiah)
+        Dollar (double): $15.99
+        Dollar setelah casting ke int: $15
+        Data yang hilang: $0.9900000000000002
+        Konversi dollar ke rupiah: Rp240000
+        Data yang hilang: Rp15840.0
+   - DataTypeLimits
+        byte testByte = (byte) 300;
+        System.out.println("testByte: " + testByte);
+
+        byte maxByte = Byte.MAX_VALUE; // 127
+        byte result = (byte)(maxByte + 1);
+        System.out.println("Overflow byte: " + maxByte + " + 1 = " + result);
+      Output:
+        testByte: 44
+        Overflow byte: 127 + 1 = -128
+
+BAGIAN C: INPUT/OUTPUT
+1. Scanner Implementation
+   Scanner yang saya gunakan: nextLine, nextInt, nextDouble, nextFloat, nextBoolean.
+   - nextLine
+        Membaca input teks/string seperti nama, NIM, dan jurusan.
+   - nextInt, nextDouble, nextFloat
+        Membaca input angka/integer seperti umur, IPK, tinggi badan, semester, dan tahun masuk.
+   - nextBoolean
+        Membaca input true/false seperti status aktif mahasiswa.
+2. Input Validation
+   Yang terjadi jika user memasukkan nilai di luar rentang 0-100 adalah program akan menampilkan
+   output error: "Input tidak valid: harus antara 0 dan 100!" dan program akan exit (return)

@@ -6,6 +6,6 @@
 **Mata Kuliah:** Pemrograman Berorientasi Objek
 
 ## Catatan Pembelajaran
-- Mengetahui struktur dasar & aturan penulisan (file, kelas, tanda ';', kurung)
+- Mengetahui struktur dasar & aturan penulisan (file, kelas, tanda ';', dan tanda kurung)
 - Mendeklarasi type & konversi (casting): widening vs narrowing
 - Membaca compiiler, error message, dan cara handle error

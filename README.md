@@ -8,4 +8,4 @@
 ## Catatan Pembelajaran
 - Mengetahui struktur dasar & aturan penulisan (file, kelas, tanda ';', dan tanda kurung)
 - Mendeklarasi type & konversi (casting): widening vs narrowing
-- Membaca compiiler, error message, dan cara handle error
+- Membaca compiler, error message, dan cara handle error
